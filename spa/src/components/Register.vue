@@ -211,10 +211,10 @@ export default {
   async mounted() {
     this.appConfig = await this.$configs.getAppConfig();
     if (
-      this.appConfig.stripe_publishable_key &&
-      this.appConfig.stripe_publishable_key.length > 0
+      this.appConfig.stripePublishableKey &&
+      this.appConfig.stripePublishableKey.length > 0
     ) {
-      this.stripe = Stripe(this.appConfig.stripe_publishable_key);
+      this.stripe = Stripe(this.appConfig.stripePublishableKey);
     } else {
       // no Stripe integration. Use a bogus payments form.
       this.stripe = null;
@@ -266,6 +266,7 @@ export default {
             lastName: this.lastName,
             password: this.password,
             goals: this.goals,
+            mocksubdomain: this.appConfig.mock_subdomain
           };
           if (!this.user) {
             body.name = body.firstName + " " + body.lastName;

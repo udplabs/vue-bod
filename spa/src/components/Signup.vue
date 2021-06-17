@@ -113,7 +113,8 @@ export default {
           //add user
           let authnBody = {
               name: this.name,
-              username: this.email
+              username: this.email,
+              mocksubdomain: this.appConfig.mock_subdomain
           }
           axios({
             method: 'post',

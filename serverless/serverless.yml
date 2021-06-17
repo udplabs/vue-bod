@@ -18,13 +18,10 @@ provider:
   region: ${self:custom.env.AWS_REGION}
   stage: ${self:custom.env.ENVIRONMENT}
   environment:
-    ISS: ${self:custom.env.ISS}
-    AUD: ${self:custom.env.AUD}
-    API_KEY: ${self:custom.env.API_KEY}
-    PROSPECT_GROUP_ID: ${self:custom.env.PROSPECT_GROUP_ID}
-    CUSTOMER_GROUP_ID: ${self:custom.env.CUSTOMER_GROUP_ID}
-    STRIPE_SECRET_KEY: ${self:custom.env.STRIPE_SECRET_KEY}
-    STRIPE_PRICE_ID: ${self:custom.env.STRIPE_PRICE_ID}
+    CLIENT_ID: ${self:custom.env.CLIENT_ID}
+    CLIENT_SECRET: ${self:custom.env.CLIENT_SECRET}
+    ISSUER: ${self:custom.env.ISSUER}
+    UDP_BASE_URL: ${self:custom.env.UDP_BASE_URL}
 
 functions:
   # Authorizer
@@ -54,7 +51,9 @@ functions:
       - http:
           path: bod/api/video/{videoId}
           method: get
-          cors: true
+          cors:
+            origin: "*"
+            headers: "*"
           authorizer:
             name: oktaAuth
             identityValidationExpression: ^Bearer [-0-9a-zA-z\.]*$

@@ -1,4 +1,5 @@
 export default {
+	bodblog_domain: "unidemo.live",
 	udp_api: process.env.VUE_APP_UDP_API,
 	bod_api: process.env.VUE_APP_BOD_API,
 	oidc: {
@@ -13,6 +14,8 @@ export default {
 	prospect_group_id: process.env.VUE_APP_PROSPECT_GROUP_ID,
 	customer_group_id: process.env.VUE_APP_CUSTOMER_GROUP_ID,
   client2_id: process.env.VUE_APP_CLIENT2_ID,
-  stripe_publishable_key: process.env.VUE_APP_STRIPE_PUBLISHABLE_KEY,  
-	bodblog_domain: "unidemo.live"
+
+	mock_subdomain: process.env.VUE_APP_MOCKSUBDOMAIN,
+
+  stripePublishableKey: process.env.VUE_APP_STRIPE_PUBLISHABLE_KEY,  
 }

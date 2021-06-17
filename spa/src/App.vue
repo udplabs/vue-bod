@@ -115,7 +115,7 @@ export default {
                 this.loggedIn = true;
 
                 // If has Stripe Integration
-                if (this.appConfig.stripe_publishable_key && this.appConfig.stripe_publishable_key.length > 0) {
+                if (this.appConfig.stripePublishableKey && this.appConfig.stripePublishableKey.length > 0) {
                   // Has Stripe CustomerId means payment has been made.
                   if (this.stripeCustomerId) {
                     this.cardOnFile = true;

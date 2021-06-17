@@ -6,8 +6,7 @@ export default {
 		if (!oktaAuthConfig.udp_api)
 			return false;
 
-        const path = oktaAuthConfig.udp_api + '/api/configs/' + subdomain  + '/bod';
-		return axios.get(path)
+		return axios.get(oktaAuthConfig.udp_api + '/api/configs/' + subdomain  + '/bod')
 		.then((res) => {
 			var result = {
 				issuer: '',
@@ -16,9 +15,14 @@ export default {
 				redirect_uri: '',
 				fbId: '',
 				prospect_group_id: '',
-				customer_group_id: ''
+				customer_group_id: '',
+				client2_id: '',
+				stripePublishableKey: undefined,
+				stripeKey: undefined,
+				stripePriceId: undefined,
+				stripeWebhookSecret: undefined,
 			};
-            const data = res.data;
+      const data = res.data;
 			if (Object.keys(data).length > 0) {
 				result.issuer=data.issuer;
 				result.base_url=data.okta_org_name;
@@ -27,6 +31,11 @@ export default {
 				result.fbId=data.settings.fbId;
 				result.prospect_group_id=data.settings.prospect_group_id;
 				result.customer_group_id=data.settings.customer_group_id;
+				result.client2_id=data.settings.client2_id;
+				result.stripePublishableKey=data.settings.stripePublishableKey;
+				result.stripeKey=data.settings.stripeKey;
+				result.stripePriceId=data.settings.stripePriceId;
+				result.stripeWebhookSecret=data.settings.stripeWebhookSecret;
 			}
 			return result;
 		})

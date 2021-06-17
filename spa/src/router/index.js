@@ -57,8 +57,9 @@ Vue.use(configs, appConfig);
 const onAuthRequired = async (from, to, next) => {
   if (initAuth) {
     initAuth = false
-    const config = await Vue.prototype.$configs.getConfig()
-    const oktaAuth = new OktaAuth(config)
+    const config = await Vue.prototype.$configs.getConfig();
+    console.log('config:', config);
+    const oktaAuth = new OktaAuth(config);
 
     Vue.use(OktaVue, {
       oktaAuth,
