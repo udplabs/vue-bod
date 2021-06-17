@@ -2,7 +2,7 @@
 @import '../assets/styles/okta-theme-override.css';
 
 .login {
-  background-image: url('http://d2bg6xcfalpw34.cloudfront.net/bod/img/unidemo-login.jpg'); 
+  background-image: url('../assets/img/unidemo-login.jpg'); 
   background-repeat: no-repeat; 
   background-size: 100%;
   background-position: center center;
